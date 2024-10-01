@@ -2,7 +2,7 @@ import { shopItems } from "../../assets/images/images-data/data";
 import { useContext } from "react";
 import { ContextShopProvider } from "../../Context/ContextShop";
 const Phone = () => {
-  const {AddToCart} = useContext(ContextShopProvider)
+  const {AddToCart, calculateTotalItems} = useContext(ContextShopProvider)
   return (
     <>
       {shopItems.map((el) => (
@@ -35,7 +35,7 @@ const Phone = () => {
             </div>
             <div className="absolute top-1 right-2">
               <span className="bg-blue  text-white w-8 h-8  rounded-full mb-2 c-flex justify-center">
-                0
+                {calculateTotalItems(el)}
               </span>
               <div>
                 <i className="fa-solid fa-heart cursor-pointer text-xl"></i>
